@@ -1,14 +1,11 @@
-package net.guides.springboot2.springboot2jpacrudexample.controller;
+package com.crud.example.controller;
 
-import java.util.HashMap;
-
-import java.util.List;
-import java.util.Map;
-
-import javax.validation.Valid;
-
+import com.crud.example.exception.ResourceNotFoundException;
+import com.crud.example.model.Employee;
+import com.crud.example.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,9 +16,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import net.guides.springboot2.springboot2jpacrudexample.exception.ResourceNotFoundException;
-import net.guides.springboot2.springboot2jpacrudexample.model.Employee;
-import net.guides.springboot2.springboot2jpacrudexample.repository.EmployeeRepository;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
@@ -44,13 +41,13 @@ public class EmployeeController {
 	}
 
 	@PostMapping("/employees")
-	public Employee createEmployee(@Valid @RequestBody Employee employee) {
+	public Employee createEmployee(@Validated @RequestBody Employee employee) {
 		return employeeRepository.save(employee);
 	}
 
 	@PutMapping("/employees/{id}")
 	public ResponseEntity<Employee> updateEmployee(@PathVariable(value = "id") Long employeeId,
-			@Valid @RequestBody Employee employeeDetails) throws ResourceNotFoundException {
+			@Validated @RequestBody Employee employeeDetails) throws ResourceNotFoundException {
 		Employee employee = employeeRepository.findById(employeeId)
 				.orElseThrow(() -> new ResourceNotFoundException("Employee not found for this id :: " + employeeId));
 
