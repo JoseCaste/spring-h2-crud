@@ -3,6 +3,7 @@ package com.crud.example.controller;
 import com.crud.example.exception.ResourceNotFoundException;
 import com.crud.example.model.Employee;
 import com.crud.example.repository.EmployeeRepository;
+import com.crud.example.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -27,17 +28,18 @@ public class EmployeeController {
 	@Autowired
 	private EmployeeRepository employeeRepository;
 
+	@Autowired
+	private EmployeeService employeeService;
+
 	@GetMapping("/employees")
 	public List<Employee> getAllEmployees() {
 		return employeeRepository.findAll();
 	}
 
 	@GetMapping("/employees/{id}")
-	public ResponseEntity<Employee> getEmployeeById(@PathVariable(value = "id") Long employeeId)
-			throws ResourceNotFoundException {
-		Employee employee = employeeRepository.findById(employeeId)
-				.orElseThrow(() -> new ResourceNotFoundException("Employee not found for this id :: " + employeeId));
-		return ResponseEntity.ok().body(employee);
+	public ResponseEntity<?> getEmployeeById(@PathVariable(value = "id") Long employeeId)
+			throws Exception {
+		return ResponseEntity.ok().body(employeeService.getAndEmployee());
 	}
 
 	@PostMapping("/employees")
