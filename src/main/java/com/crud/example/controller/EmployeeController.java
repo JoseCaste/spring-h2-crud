@@ -23,7 +23,7 @@ import java.util.Map;
 
 @CrossOrigin(origins = "http://3.141.201.26:8080")
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/employee/api/v1")
 public class EmployeeController {
 	@Autowired
 	private EmployeeRepository employeeRepository;
