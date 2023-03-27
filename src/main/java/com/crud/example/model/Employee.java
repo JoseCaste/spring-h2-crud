@@ -1,6 +1,8 @@
 package com.crud.example.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,6 +14,8 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "employees")
 @Builder
+@AllArgsConstructor
+@Data
 public class Employee {
 
 	private long id;

@@ -62,3 +62,83 @@
 2023-03-27 14:28:30,730 WARN [SpringApplicationShutdownHook] org.springframework.beans.factory.support.DisposableBeanAdapter: Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-214]
 2023-03-27 14:28:30,731 INFO [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Shutdown initiated...
 2023-03-27 14:28:30,734 INFO [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Shutdown completed.
+2023-03-27 16:51:43,789 INFO [restartedMain] org.springframework.boot.StartupInfoLogger: Starting Application using Java 17.0.5 on HT6P3J3 with PID 19328 (D:\git\springboot2-jpa-h2-crud-example\target\classes started by jcast in D:\git\springboot2-jpa-h2-crud-example)
+2023-03-27 16:51:43,793 INFO [restartedMain] org.springframework.boot.SpringApplication: The following 1 profile is active: "prod"
+2023-03-27 16:51:43,847 INFO [restartedMain] org.springframework.boot.logging.DeferredLog: Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-03-27 16:51:44,003 WARN [restartedMain] org.springframework.context.support.AbstractApplicationContext: Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [com.crud.example.Application]; nested exception is java.lang.IllegalStateException: Failed to introspect annotated methods on class org.springframework.boot.web.servlet.support.SpringBootServletInitializer
+2023-03-27 16:51:44,039 ERROR [restartedMain] org.springframework.boot.SpringApplication: Application run failed
+org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [com.crud.example.Application]; nested exception is java.lang.IllegalStateException: Failed to introspect annotated methods on class org.springframework.boot.web.servlet.support.SpringBootServletInitializer
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:188)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:331)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:247)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:311)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:112)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:748)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:564)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:731)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292)
+	at com.crud.example.Application.main(Application.java:20)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: java.lang.IllegalStateException: Failed to introspect annotated methods on class org.springframework.boot.web.servlet.support.SpringBootServletInitializer
+	at org.springframework.core.type.StandardAnnotationMetadata.getAnnotatedMethods(StandardAnnotationMetadata.java:162)
+	at org.springframework.context.annotation.ConfigurationClassParser.retrieveBeanMethodMetadata(ConfigurationClassParser.java:402)
+	at org.springframework.context.annotation.ConfigurationClassParser.doProcessConfigurationClass(ConfigurationClassParser.java:325)
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:249)
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:206)
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:174)
+	... 17 common frames omitted
+Caused by: java.lang.IllegalStateException: Failed to introspect Class [org.springframework.boot.web.servlet.support.SpringBootServletInitializer] from ClassLoader [jdk.internal.loader.ClassLoaders$AppClassLoader@1d44bcfa]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:485)
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:459)
+	at org.springframework.core.type.StandardAnnotationMetadata.getAnnotatedMethods(StandardAnnotationMetadata.java:151)
+	... 22 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: javax/servlet/ServletContext
+	at java.base/java.lang.Class.getDeclaredMethods0(Native Method)
+	at java.base/java.lang.Class.privateGetDeclaredMethods(Class.java:3402)
+	at java.base/java.lang.Class.getDeclaredMethods(Class.java:2504)
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:467)
+	... 24 common frames omitted
+Caused by: java.lang.ClassNotFoundException: javax.servlet.ServletContext
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:520)
+	... 28 common frames omitted
+2023-03-27 16:52:08,081 INFO [restartedMain] org.springframework.boot.StartupInfoLogger: Starting Application using Java 17.0.5 on HT6P3J3 with PID 21988 (D:\git\springboot2-jpa-h2-crud-example\target\classes started by jcast in D:\git\springboot2-jpa-h2-crud-example)
+2023-03-27 16:52:08,083 INFO [restartedMain] org.springframework.boot.SpringApplication: The following 1 profile is active: "prod"
+2023-03-27 16:52:08,130 INFO [restartedMain] org.springframework.boot.logging.DeferredLog: Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-03-27 16:52:08,131 INFO [restartedMain] org.springframework.boot.logging.DeferredLog: For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-03-27 16:52:08,798 INFO [restartedMain] org.springframework.data.repository.config.RepositoryConfigurationDelegate: Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-03-27 16:52:08,866 INFO [restartedMain] org.springframework.data.repository.config.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 60 ms. Found 1 JPA repository interfaces.
+2023-03-27 16:52:09,641 INFO [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer: Tomcat initialized with port(s): 8082 (http)
+2023-03-27 16:52:09,650 INFO [restartedMain] org.apache.juli.logging.DirectJDKLog: Initializing ProtocolHandler ["http-nio-8082"]
+2023-03-27 16:52:09,651 INFO [restartedMain] org.apache.juli.logging.DirectJDKLog: Starting service [Tomcat]
+2023-03-27 16:52:09,651 INFO [restartedMain] org.apache.juli.logging.DirectJDKLog: Starting Servlet engine: [Apache Tomcat/9.0.73]
+2023-03-27 16:52:09,726 INFO [restartedMain] org.apache.juli.logging.DirectJDKLog: Initializing Spring embedded WebApplicationContext
+2023-03-27 16:52:09,726 INFO [restartedMain] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext: Root WebApplicationContext: initialization completed in 1595 ms
+2023-03-27 16:52:09,761 INFO [restartedMain] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Starting...
+2023-03-27 16:52:09,947 INFO [restartedMain] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Start completed.
+2023-03-27 16:52:09,958 INFO [restartedMain] org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration: H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:fd2fa36c-9a74-4129-b826-c9fdda992e66'
+2023-03-27 16:52:10,168 INFO [restartedMain] org.hibernate.jpa.internal.util.LogHelper: HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-03-27 16:52:10,220 INFO [restartedMain] org.hibernate.Version: HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-03-27 16:52:10,376 INFO [restartedMain] org.hibernate.annotations.common.reflection.java.JavaReflectionManager: HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-03-27 16:52:10,488 INFO [restartedMain] org.hibernate.dialect.Dialect: HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2023-03-27 16:52:10,983 INFO [restartedMain] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator: HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-03-27 16:52:10,992 INFO [restartedMain] org.springframework.orm.jpa.AbstractEntityManagerFactoryBean: Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-03-27 16:52:11,461 INFO [restartedMain] com.crud.example.controller.EmployeeController: post contruct
+2023-03-27 16:52:11,680 WARN [restartedMain] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration: spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-03-27 16:52:11,903 INFO [restartedMain] org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer: LiveReload server is running on port 35729
+2023-03-27 16:52:11,920 INFO [restartedMain] org.apache.juli.logging.DirectJDKLog: Starting ProtocolHandler ["http-nio-8082"]
+2023-03-27 16:52:11,942 INFO [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer: Tomcat started on port(s): 8082 (http) with context path ''
+2023-03-27 16:52:11,954 INFO [restartedMain] org.springframework.boot.StartupInfoLogger: Started Application in 4.256 seconds (JVM running for 4.81)
+2023-03-27 16:52:13,543 INFO [SpringApplicationShutdownHook] org.springframework.orm.jpa.AbstractEntityManagerFactoryBean: Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-03-27 16:52:13,544 INFO [SpringApplicationShutdownHook] org.hibernate.tool.schema.internal.SchemaDropperImpl$DelayedDropActionImpl: HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2023-03-27 16:52:13,759 WARN [SpringApplicationShutdownHook] org.springframework.beans.factory.support.DisposableBeanAdapter: Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-214]
+2023-03-27 16:52:13,761 INFO [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Shutdown initiated...
+2023-03-27 16:52:13,763 INFO [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Shutdown completed.
