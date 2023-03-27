@@ -37,6 +37,8 @@ public class EmployeeController {
 	@PostConstruct
 	public void init(){
 		LOGGER.info("post contruct");
+		Employee employee = Employee.builder().emailId("abc@mail.com").firstName("test").lastName("test 2").build();
+		this.employeeRepository.save(employee);
 	}
 
 	@GetMapping("/employees")
