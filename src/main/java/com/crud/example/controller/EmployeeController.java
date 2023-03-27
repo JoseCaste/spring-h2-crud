@@ -4,6 +4,8 @@ import com.crud.example.exception.ResourceNotFoundException;
 import com.crud.example.model.Employee;
 import com.crud.example.repository.EmployeeRepository;
 import com.crud.example.service.EmployeeService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.PostConstruct;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -25,11 +28,17 @@ import java.util.Map;
 @RestController
 @RequestMapping("/employee/api/v1")
 public class EmployeeController {
+	private static Logger LOGGER = LoggerFactory.getLogger(EmployeeController.class);
 	@Autowired
 	private EmployeeRepository employeeRepository;
 
 	@Autowired
 	private EmployeeService employeeService;
+
+	@PostConstruct
+	public void init(){
+		LOGGER.info("post contruct");
+	}
 
 	@GetMapping("/employees")
 	public List<Employee> getAllEmployees() {
