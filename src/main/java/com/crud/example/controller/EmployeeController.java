@@ -37,6 +37,7 @@ public class EmployeeController {
 	@PostConstruct
 	public void init(){
 		LOGGER.info("post contruct");
+		System.out.println("Hello World");
 		Employee employee = Employee.builder().emailId("abc@mail.com").firstName("test").lastName("test 2").build();
 		this.employeeRepository.save(employee);
 	}
