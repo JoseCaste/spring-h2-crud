@@ -3,3 +3,5 @@ spring:
     active: prod
 server:
   port: 8082
+  servlet:
+    context-path: spring-dev-ops
